@@ -25,7 +25,7 @@ module RailsApiWarden
 
     # Add Warden in the middleware stack
     config.middleware.insert_after ActionDispatch::ParamsParser, Warden::Manager do |manager|
-      manager.default_strategies :authentication_token
+      manager.default_strategies :authentication_token, :basic_auth
       manager.failure_app = UnauthorizedController
     end
   end
